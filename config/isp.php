@@ -80,4 +80,22 @@ return [
 
     'max_kb_documento' => 20480, // 20 MB
 
+    /*
+    |--------------------------------------------------------------------------
+    | Super administrador
+    |--------------------------------------------------------------------------
+    |
+    | Credenciales con las que AdminUserSeeder crea la cuenta inicial del
+    | panel. Las variables de entorno las sobrescriben. Se leen desde aqui (y
+    | no con env() en el seeder) para que sigan funcionando con la
+    | configuracion cacheada en produccion.
+    |
+    */
+
+    'super_admin' => [
+        'nombre' => env('ADMIN_NAME', 'Administrador'),
+        'email' => env('ADMIN_EMAIL', 'victorgarnicavmmax@gmail.com'),
+        'password' => env('ADMIN_PASSWORD', 'VMMAXvictor'),
+    ],
+
 ];
