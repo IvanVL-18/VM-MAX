@@ -27,7 +27,7 @@ class Seo
         ],
         'paquetes' => [
             'titulo' => 'Paquetes y tarifas',
-            'descripcion' => 'Paquetes de Internet por fibra óptica y por antena: precios, velocidades, características, restricciones y folios de tarifa registrados ante el IFT.',
+            'descripcion' => 'Paquetes de Internet por fibra óptica y por antena: precios, velocidades, características y folios de tarifa registrados ante la CRT.',
         ],
         'contratacion' => [
             'titulo' => 'Contratación del servicio',
@@ -43,7 +43,7 @@ class Seo
         ],
         'transparencia' => [
             'titulo' => 'Transparencia',
-            'descripcion' => 'Enlaces oficiales del IFT y del Diario Oficial de la Federación, y folios de las tarifas registradas.',
+            'descripcion' => 'Enlaces oficiales de la CRT y del Diario Oficial de la Federación, y folios de las tarifas registradas.',
         ],
         'aviso-de-privacidad' => [
             'titulo' => 'Aviso de privacidad',
@@ -51,7 +51,7 @@ class Seo
         ],
         'legal' => [
             'titulo' => 'Documentos legales',
-            'descripcion' => 'Descarga en PDF el permiso del IFT, el código de prácticas comerciales, la carta de derechos mínimos del usuario y demás documentación obligatoria.',
+            'descripcion' => 'Descarga en PDF el permiso de la CRT, el código de prácticas comerciales, la carta de derechos mínimos del usuario y demás documentación obligatoria.',
         ],
     ];
 

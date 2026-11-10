@@ -28,7 +28,7 @@ class PanelTest extends TestCase
 
         $documento = DocumentoLegal::create([
             'tipo' => TipoDocumento::PermisoIft->value,
-            'titulo' => 'Permiso del IFT',
+            'titulo' => 'Permiso de la CRT',
             'activo' => true,
         ]);
 

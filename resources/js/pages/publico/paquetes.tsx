@@ -9,7 +9,7 @@ import type { GrupoPaquetes } from '@/types/sitio';
 
 /**
  * Requisitos 12 y 13: precios y tarifas de cada paquete, con características,
- * restricciones y el folio de la tarifa inscrita ante el IFT.
+ * y el folio de la tarifa inscrita ante la CRT.
  *
  * El catálogo se separa por red porque los nombres comerciales se repiten entre
  * fibra y antena («Básico» a $250 existe en las dos, con velocidades distintas).
@@ -43,7 +43,7 @@ export default function Paquetes({
 
             <PageHeader
                 titulo="Paquetes y tarifas"
-                descripcion="Detalle de cada paquete: precio mensual, velocidad contratada, características, restricciones aplicables y el folio de la tarifa inscrita ante el IFT."
+                descripcion="Detalle de cada paquete: precio mensual, velocidad contratada, características y el folio de la tarifa inscrita ante la CRT."
             />
 
             <div className="mx-auto max-w-6xl px-4 py-12">
@@ -185,7 +185,7 @@ export default function Paquetes({
                             rel="noreferrer noopener"
                             className="text-primary mt-3 inline-flex items-center gap-1.5 text-sm font-medium underline underline-offset-4"
                         >
-                            Abrir el visor de tarifas del IFT
+                            Abrir el visor de tarifas de la CRT
                             <ExternalLink
                                 className="size-3.5"
                                 aria-hidden="true"

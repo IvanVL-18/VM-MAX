@@ -51,7 +51,7 @@ class DashboardController extends Controller
             if (blank($plan->folio_tarifa) || str_contains((string) $plan->folio_tarifa, 'POR DEFINIR')) {
                 $pendientes[] = [
                     'tipo' => 'Paquete',
-                    'detalle' => "Falta el folio de tarifa del IFT en «{$plan->nombre}» (requisito 13)",
+                    'detalle' => "Falta el folio de tarifa de la CRT en «{$plan->nombre}» (requisito 13)",
                 ];
             }
         }

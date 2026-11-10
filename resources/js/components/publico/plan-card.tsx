@@ -29,8 +29,8 @@ export function formatoPrecio(monto: number, moneda: string): string {
 /**
  * Tarjeta de un paquete.
  *
- * Con `detallado` muestra además las restricciones (requisito 12) y el folio de
- * la tarifa inscrita en el IFT (requisito 13), que es como debe presentarse en
+ * Con `detallado` muestra además el folio de
+ * la tarifa inscrita en la CRT (requisito 13), que es como debe presentarse en
  * la página de paquetes.
  *
  * `mostrarTecnologia` se usa donde conviven paquetes de las dos redes (la
@@ -179,23 +179,10 @@ export default function PlanCard({
 
             {detallado && (
                 <div className="mt-auto space-y-3 border-t pt-4 text-sm">
-                    {/* Requisito 12: posibles restricciones del servicio */}
+                    {/* Requisito 13: folio de la tarifa inscrita en la CRT */}
                     <div>
                         <h4 className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">
-                            Restricciones
-                        </h4>
-                        <div className="mt-1">
-                            <Dato
-                                valor={plan.restricciones}
-                                vacio="Sin restricciones capturadas"
-                            />
-                        </div>
-                    </div>
-
-                    {/* Requisito 13: folio de la tarifa inscrita en el IFT */}
-                    <div>
-                        <h4 className="text-muted-foreground text-xs font-semibold tracking-wide uppercase">
-                            Folio de tarifa registrada ante el IFT
+                            Folio de tarifa registrada ante la CRT
                         </h4>
                         <div className="mt-1">
                             <Dato

@@ -12,7 +12,7 @@ use Inertia\Response;
 
 /**
  * Requisitos 12 y 13: informacion de precios y tarifas de cada paquete, con sus
- * caracteristicas, restricciones y el folio de la tarifa inscrita en el IFT.
+ * caracteristicas y el folio de la tarifa inscrita en la CRT.
  *
  * El catalogo se agrupa por tecnologia porque los nombres comerciales se
  * repiten entre las dos redes: hay un "Básico" de fibra y otro de antena, ambos

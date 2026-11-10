@@ -33,8 +33,13 @@ class SitioPublicoTest extends TestCase
         }
     }
 
-    /** Requisitos 12 y 13: precio, restricciones y folio viajan a la vista. */
-    public function test_los_paquetes_incluyen_restricciones_y_folio(): void
+    /**
+     * Requisitos 12 y 13: precio y folio viajan a la vista.
+     *
+     * Las restricciones no se publican por decisión del cliente, así que
+     * tampoco deben viajar al sitio (ver docs/REQUISITOS-LEGALES.md).
+     */
+    public function test_los_paquetes_incluyen_precio_y_folio_pero_no_restricciones(): void
     {
         Plan::create([
             'nombre' => 'Paquete de prueba',
@@ -44,8 +49,7 @@ class SitioPublicoTest extends TestCase
             'precio_mensual' => 599.00,
             'moneda' => 'MXN',
             'caracteristicas' => ['Una característica'],
-            'restricciones' => 'Sujeto a cobertura.',
-            'folio_tarifa' => 'IFT-123',
+            'folio_tarifa' => 'CRT-123',
             'activo' => true,
             'orden' => 1,
         ]);
@@ -61,8 +65,8 @@ class SitioPublicoTest extends TestCase
                 // El precio viaja por JSON, así que se compara su valor
                 // numérico y no su tipo exacto.
                 ->where('grupos.0.planes.0.precio_mensual', fn ($precio) => (float) $precio === 599.0)
-                ->where('grupos.0.planes.0.restricciones', 'Sujeto a cobertura.')
-                ->where('grupos.0.planes.0.folio_tarifa', 'IFT-123')
+                ->where('grupos.0.planes.0.folio_tarifa', 'CRT-123')
+                ->missing('grupos.0.planes.0.restricciones')
             );
     }
 

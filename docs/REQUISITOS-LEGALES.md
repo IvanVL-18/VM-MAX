@@ -9,23 +9,31 @@ configuración.
 
 | No. | Requisito                                            | Tipo         | Dónde vive                                            | Origen                   |
 | --- | ---------------------------------------------------- | ------------ | ----------------------------------------------------- | ------------------------ |
-| 1   | Permiso del IFT (título de concesión)                | PDF          | `/legal` → `permiso_ift`                              | Despacho                 |
+| 1   | Permiso de la CRT (título de concesión)              | PDF          | `/legal` → `permiso_ift`                              | Despacho                 |
 | 2   | Formato de Información Simplificada                  | PDF          | `/legal` → `formato_info_simplificada`                | Despacho                 |
 | 3   | Oficio de Registro de contrato de adhesión (PROFECO) | PDF          | `/legal` → `oficio_profeco`                           | Despacho                 |
-| 4   | Constancia de inscripción del oficio ante el IFT     | PDF          | `/legal` → `constancia_profeco_ift`                   | Despacho                 |
+| 4   | Constancia de inscripción del oficio ante la CRT     | PDF          | `/legal` → `constancia_profeco_ift`                   | Despacho                 |
 | 5   | Código de Prácticas Comerciales                      | PDF          | `/legal` → `codigo_practicas`                         | Despacho                 |
 | 6   | Aviso de Privacidad                                  | PDF + página | `/aviso-de-privacidad` y `/legal`                     | Despacho                 |
 | 7   | Carta de Derechos Mínimos del Usuario                | PDF          | `/legal` → `carta_derechos`                           | Despacho                 |
 | 8   | Código de Ética                                      | PDF          | `/legal` → `codigo_etica`                             | Despacho                 |
 | 10  | Catálogo de trámites (servicios ofrecidos)           | Página       | Pie de página global + `/`                            | Cliente                  |
 | 11  | Medios de pago                                       | Página       | `/medios-de-pago`                                     | Cliente                  |
-| 12  | Precios, tarifas, características y restricciones    | Página       | `/paquetes` (campo `restricciones`)                   | Cliente                  |
-| 13  | Folios de tarifas inscritas en el IFT                | Página       | `/paquetes` y `/transparencia` (campo `folio_tarifa`) | Cliente                  |
+| 12  | Precios, tarifas y características                   | Página       | `/paquetes`                                           | Cliente — ver nota ⚠️    |
+| 13  | Folios de tarifas inscritas en la CRT                | Página       | `/paquetes` y `/transparencia` (campo `folio_tarifa`) | Cliente                  |
 | 14  | Liga del visor de tarifas                            | Enlace       | `/transparencia`                                      | Fijo                     |
 | 15  | Liga de lineamientos de calidad del servicio fijo    | Enlace       | `/transparencia`                                      | Fijo                     |
 | 16  | Liga de lineamientos generales de publicación        | Enlace       | `/transparencia`                                      | Fijo — **URL pendiente** |
 | 18  | Contratación del servicio                            | Página       | `/contratacion`                                       | Cliente                  |
 | 20  | Quejas                                               | Página       | `/quejas`                                             | Cliente                  |
+
+> ⚠️ **Requisito 12 — restricciones no publicadas.** El checklist del despacho
+> pide publicar «precios, tarifas, características **y restricciones**». Por
+> decisión del cliente los paquetes no publican restricciones: la sección se
+> retiró de `/paquetes` y el campo se retiró de `/admin/planes`. La columna
+> `restricciones` sigue existiendo en la tabla `planes` (vacía y sin uso), así
+> que revertirlo es solo volver a exponerla. Conviene que el despacho jurídico
+> esté enterado de esta omisión.
 
 **Datos adicionales obligatorios** (domicilio de atención, horario de oficina,
 correo de atención y de facturación, teléfono, marca comercial y servicios
@@ -80,11 +88,11 @@ Tomados del material comercial que VM MAX ya difunde:
 
 ## Dónde se administra cada cosa
 
-| Panel                  | Qué edita                                                                                           |
-| ---------------------- | --------------------------------------------------------------------------------------------------- |
-| `/admin/planes`        | Paquetes: precio, velocidades, características, restricciones (req. 12) y folio de tarifa (req. 13) |
-| `/admin/documentos`    | Sube y reemplaza los PDF de los requisitos 1 al 8                                                   |
-| `/admin/configuracion` | Contacto, servicios (req. 10), medios de pago (req. 11), contratación (req. 18) y quejas (req. 20)  |
+| Panel                  | Qué edita                                                                                          |
+| ---------------------- | -------------------------------------------------------------------------------------------------- |
+| `/admin/planes`        | Paquetes: precio, velocidades, características (req. 12) y folio de tarifa (req. 13)               |
+| `/admin/documentos`    | Sube y reemplaza los PDF de los requisitos 1 al 8                                                  |
+| `/admin/configuracion` | Contacto, servicios (req. 10), medios de pago (req. 11), contratación (req. 18) y quejas (req. 20) |
 
 El panel muestra en su portada la lista de pendientes: documentos sin PDF,
 paquetes sin folio y campos de configuración que siguen con texto de ejemplo.

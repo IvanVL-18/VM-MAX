@@ -17,7 +17,6 @@ type PlanEditable = {
     caracteristicas: string[];
     incluye_tv: boolean;
     incluye_camara: boolean;
-    restricciones: string | null;
     folio_tarifa: string | null;
     destacado: boolean;
     activo: boolean;
@@ -49,8 +48,8 @@ export default function PlanForm({
                         {editando ? `Editar «${plan.nombre}»` : 'Nuevo paquete'}
                     </h1>
                     <p className="text-muted-foreground mt-1 text-sm">
-                        Los campos de restricciones y folio de tarifa son
-                        obligatorios por normativa; procura no dejarlos vacíos.
+                        El folio de tarifa es obligatorio por normativa; procura
+                        no dejarlo vacío.
                     </p>
                 </div>
 
@@ -206,26 +205,8 @@ export default function PlanForm({
                             </div>
 
                             <div className="grid gap-2">
-                                <Label htmlFor="restricciones">
-                                    Restricciones
-                                </Label>
-                                <textarea
-                                    id="restricciones"
-                                    name="restricciones"
-                                    rows={3}
-                                    defaultValue={plan?.restricciones ?? ''}
-                                    className="border-input bg-background focus-visible:ring-ring w-full rounded-md border px-3 py-2 text-sm focus-visible:ring-2 focus-visible:outline-none"
-                                />
-                                <p className="text-muted-foreground text-xs">
-                                    Requisito 12: se deben indicar las posibles
-                                    restricciones del paquete.
-                                </p>
-                                <InputError message={errors.restricciones} />
-                            </div>
-
-                            <div className="grid gap-2">
                                 <Label htmlFor="folio_tarifa">
-                                    Folio de tarifa (IFT)
+                                    Folio de tarifa (CRT)
                                 </Label>
                                 <Input
                                     id="folio_tarifa"
@@ -234,7 +215,7 @@ export default function PlanForm({
                                 />
                                 <p className="text-muted-foreground text-xs">
                                     Requisito 13: folio con el que la tarifa
-                                    quedó inscrita ante el IFT.
+                                    quedó inscrita ante la CRT.
                                 </p>
                                 <InputError message={errors.folio_tarifa} />
                             </div>

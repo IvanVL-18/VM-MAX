@@ -24,7 +24,7 @@ class DescargaDocumentoTest extends TestCase
 
         DocumentoLegal::create([
             'tipo' => TipoDocumento::PermisoIft->value,
-            'titulo' => 'Permiso del IFT',
+            'titulo' => 'Permiso de la CRT',
             'archivo_path' => $ruta,
             'archivo_nombre_original' => 'permiso.pdf',
             'archivo_bytes' => 12288,

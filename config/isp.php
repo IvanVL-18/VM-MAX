@@ -6,7 +6,7 @@
 |--------------------------------------------------------------------------
 |
 | Aqui viven los valores que NO cambian y que por lo tanto no ameritan una
-| tabla en la base de datos: las ligas a sitios oficiales (IFT / DOF) que la
+| tabla en la base de datos: las ligas a sitios oficiales (CRT / DOF) que la
 | normativa obliga a mostrar de forma individual y visible.
 |
 | Los datos que si cambian (contacto, horarios, medios de pago, textos de
@@ -32,8 +32,8 @@ return [
 
         [
             'requisito' => 14,
-            'titulo' => 'Visor de tarifas del IFT',
-            'descripcion' => 'Consulta pública de las tarifas registradas ante el Instituto Federal de Telecomunicaciones.',
+            'titulo' => 'Visor de tarifas de la CRT',
+            'descripcion' => 'Consulta pública de las tarifas registradas ante la Comisión Reguladora de Telecomunicaciones.',
             'url' => 'https://tarifas.ift.org.mx/ift_visor/',
         ],
 
@@ -79,5 +79,23 @@ return [
     */
 
     'max_kb_documento' => 20480, // 20 MB
+
+    /*
+    |--------------------------------------------------------------------------
+    | Super administrador
+    |--------------------------------------------------------------------------
+    |
+    | Credenciales con las que AdminUserSeeder crea la cuenta inicial del
+    | panel. Las variables de entorno las sobrescriben. Se leen desde aqui (y
+    | no con env() en el seeder) para que sigan funcionando con la
+    | configuracion cacheada en produccion.
+    |
+    */
+
+    'super_admin' => [
+        'nombre' => env('ADMIN_NAME', 'Administrador'),
+        'email' => env('ADMIN_EMAIL', 'victorgarnicavmmax@gmail.com'),
+        'password' => env('ADMIN_PASSWORD', 'VMMAXvictor'),
+    ],
 
 ];
