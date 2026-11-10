@@ -21,10 +21,10 @@ enum TipoDocumento: string
     public function titulo(): string
     {
         return match ($this) {
-            self::PermisoIft => 'Permiso del IFT (título de concesión)',
+            self::PermisoIft => 'Permiso de la CRT (título de concesión)',
             self::FormatoInfoSimplificada => 'Formato de Información Simplificada',
             self::OficioProfeco => 'Oficio de Registro de contrato de adhesión (PROFECO)',
-            self::ConstanciaProfecoIft => 'Constancia de inscripción del oficio ante el IFT',
+            self::ConstanciaProfecoIft => 'Constancia de inscripción del oficio ante la CRT',
             self::CodigoPracticas => 'Código de Prácticas Comerciales',
             self::AvisoPrivacidad => 'Aviso de Privacidad',
             self::CartaDerechos => 'Carta de Derechos Mínimos del Usuario',

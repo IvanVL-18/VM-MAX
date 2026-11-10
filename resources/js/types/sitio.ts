@@ -30,7 +30,6 @@ export type PlanPublico = {
     caracteristicas: string[];
     incluye_tv: boolean;
     incluye_camara: boolean;
-    restricciones: string | null;
     folio_tarifa: string | null;
     destacado: boolean;
 };
@@ -49,7 +48,7 @@ export type GrupoPaquetes = {
     planes: PlanPublico[];
 };
 
-/** Liga a un sitio oficial (IFT / DOF) que la normativa obliga a publicar. */
+/** Liga a un sitio oficial (CRT / DOF) que la normativa obliga a publicar. */
 export type EnlaceOficial = {
     requisito: number;
     titulo: string;

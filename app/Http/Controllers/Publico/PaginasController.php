@@ -57,7 +57,7 @@ class PaginasController extends Controller
 
     /**
      * Requisitos 14, 15 y 16: ligas oficiales mostradas de forma individual y
-     * visible, mas los folios de tarifas inscritas en el IFT (requisito 13).
+     * visible, mas los folios de tarifas inscritas en la CRT (requisito 13).
      */
     public function transparencia(): Response
     {

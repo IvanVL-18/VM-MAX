@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('moneda', 3)->default('MXN');
             $table->json('caracteristicas')->nullable();
             $table->text('restricciones')->nullable()->comment('Requisito 12: posibles restricciones del servicio');
-            $table->string('folio_tarifa')->nullable()->comment('Requisito 13: folio del registro de tarifas ante el IFT');
+            $table->string('folio_tarifa')->nullable()->comment('Requisito 13: folio del registro de tarifas ante la CRT');
             $table->boolean('destacado')->default(false);
             $table->boolean('activo')->default(true);
             $table->unsignedInteger('orden')->default(0);

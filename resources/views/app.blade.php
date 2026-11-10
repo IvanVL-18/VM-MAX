@@ -13,9 +13,20 @@
             }
         </style>
 
-        <link rel="icon" href="/favicon.ico" sizes="any">
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+        <meta name="theme-color" content="#5b3be0">
+
+        {{--
+            Los navegadores guardan el favicon con mucha más insistencia que
+            el resto de los archivos: sin algo que distinga la URL, siguen
+            pintando el icono anterior aunque en disco ya haya otro. La fecha
+            de modificación hace de versión y se actualiza sola cada vez que
+            se reemplaza el archivo.
+        --}}
+        @php($versionIcono = filemtime(public_path('favicon.ico')) ?: 1)
+        <link rel="icon" href="/favicon.ico?v={{ $versionIcono }}" sizes="48x48 32x32 16x16">
+        <link rel="icon" href="/favicon-96.png?v={{ $versionIcono }}" type="image/png" sizes="96x96">
+        <link rel="icon" href="/favicon-32.png?v={{ $versionIcono }}" type="image/png" sizes="32x32">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png?v={{ $versionIcono }}">
 
         @fonts
 

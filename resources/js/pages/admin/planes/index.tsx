@@ -119,7 +119,7 @@ export default function PlanesIndex({ planes }: { planes: PlanFila[] }) {
                                         scope="col"
                                         className="px-4 py-3 text-left font-semibold"
                                     >
-                                        Folio IFT
+                                        Folio CRT
                                     </th>
                                     <th
                                         scope="col"

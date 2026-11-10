@@ -35,7 +35,7 @@ export default function Home({
                 />
                 <div
                     aria-hidden="true"
-                    className="pointer-events-none absolute -bottom-40 -left-32 size-96 rounded-full bg-sky-400/10 blur-3xl"
+                    className="pointer-events-none absolute -bottom-40 -left-32 size-96 rounded-full bg-[var(--vm-magenta)]/10 blur-3xl"
                 />
 
                 <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-24">
@@ -93,8 +93,8 @@ export default function Home({
                                 Nuestros paquetes
                             </h2>
                             <p className="text-muted-foreground mt-2">
-                                Consulta el detalle completo, restricciones y
-                                folios de tarifa en la página de paquetes.
+                                Consulta el detalle completo y los folios de
+                                tarifa en la página de paquetes.
                             </p>
                         </div>
                         <Button
@@ -186,7 +186,7 @@ export default function Home({
                                 Documentos legales
                             </span>
                             <span className="text-muted-foreground text-sm">
-                                Permiso del IFT, código de prácticas
+                                Permiso de la CRT, código de prácticas
                                 comerciales, carta de derechos y demás
                                 documentos descargables en PDF.
                             </span>
@@ -208,7 +208,7 @@ export default function Home({
                                 Transparencia
                             </span>
                             <span className="text-muted-foreground text-sm">
-                                Visor de tarifas del IFT, lineamientos
+                                Visor de tarifas de la CRT, lineamientos
                                 publicados en el DOF y folios de las tarifas
                                 registradas.
                             </span>

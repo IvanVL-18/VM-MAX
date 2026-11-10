@@ -1,6 +1,7 @@
 import { Link, usePage } from '@inertiajs/react';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import LogoVmMax from '@/components/logo-vm-max';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import type { PropsCompartidas } from '@/types/sitio';
@@ -24,21 +25,20 @@ export default function SiteHeader() {
         href === '/' ? pagina.url === '/' : pagina.url.startsWith(href);
 
     return (
-        <header className="bg-background/95 supports-[backdrop-filter]:bg-background/80 sticky top-0 z-40 border-b backdrop-blur">
+        <header className="bg-background/95 supports-[backdrop-filter]:bg-background/80 vm-filo-degradado sticky top-0 z-40 border-b backdrop-blur">
             <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
                 <Link
                     href="/"
-                    className="flex min-w-0 items-center gap-2 font-semibold"
+                    className="flex min-w-0 shrink-0 items-center"
                     aria-label="Ir al inicio"
                 >
-                    {/* El logo definitivo lo entrega el cliente; mientras tanto
-                        se usa la marca comercial como identificador textual. */}
-                    <span className="bg-primary text-primary-foreground flex size-8 shrink-0 items-center justify-center rounded-md text-sm font-bold">
-                        {(sitio?.marca_comercial ?? 'ISP')
-                            .charAt(0)
-                            .toUpperCase()}
-                    </span>
-                    <span className="truncate">
+                    {/*
+                        El logotipo ya contiene el nombre de la marca, así que
+                        no se repite como texto; la marca comercial capturada
+                        queda para lectores de pantalla y buscadores.
+                    */}
+                    <LogoVmMax className="h-12 w-auto sm:h-14" titulo="" />
+                    <span className="sr-only">
                         {sitio?.marca_comercial ?? 'Inicio'}
                     </span>
                 </Link>

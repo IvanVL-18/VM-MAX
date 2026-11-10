@@ -76,8 +76,8 @@
     --card-foreground: oklch(0.145 0 0);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.52 0.26 289);
+    --primary-foreground: oklch(1 0 0);
     --secondary: oklch(0.97 0 0);
     --secondary-foreground: oklch(0.205 0 0);
     --muted: oklch(0.97 0 0);
@@ -88,7 +88,7 @@
     --destructive-foreground: oklch(0.577 0.245 27.325);
     --border: oklch(0.922 0 0);
     --input: oklch(0.922 0 0);
-    --ring: oklch(0.87 0 0);
+    --ring: oklch(0.52 0.26 289);
     --chart-1: oklch(0.646 0.222 41.116);
     --chart-2: oklch(0.6 0.118 184.704);
     --chart-3: oklch(0.398 0.07 227.392);
@@ -97,12 +97,27 @@
     --radius: 0.625rem;
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
-    --sidebar-primary: oklch(0.205 0 0);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.52 0.26 289);
+    --sidebar-primary-foreground: oklch(1 0 0);
     --sidebar-accent: oklch(0.97 0 0);
     --sidebar-accent-foreground: oklch(0.205 0 0);
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.87 0 0);
+
+    /*
+    | Degradado del logotipo VM-MAX: azul -> violeta -> magenta. Vive en
+    | :root para que el sitio publico, el panel y el propio logotipo pinten
+    | la marca con los mismos tonos.
+    */
+    --vm-azul: oklch(0.53 0.22 264);
+    --vm-violeta: oklch(0.52 0.26 289);
+    --vm-magenta: oklch(0.59 0.29 323);
+    --vm-degradado: linear-gradient(
+        100deg,
+        var(--vm-azul) 0%,
+        var(--vm-violeta) 45%,
+        var(--vm-magenta) 100%
+    );
 }
 
 @layer base {
@@ -120,46 +135,84 @@
 | Sitio público de VM MAX
 |------------------------------------------------------------------------------
 |
-| El sitio público usa la paleta de marca (naranja sobre blanco). Las variables
-| se redefinen sobre el contenedor `.sitio-publico` y no sobre :root, así que
-| solo aplican dentro del sitio público: el panel de administración conserva la
-| paleta neutra clara de :root.
+| El sitio público toma su color del logotipo VM-MAX: azul, violeta y magenta
+| sobre blanco. Las variables se redefinen sobre el contenedor `.sitio-publico`
+| y no sobre :root, así que solo aplican dentro del sitio público; el panel de
+| administración conserva la paleta neutra clara de :root y solo comparte el
+| violeta de `--primary`.
 |
 */
 
 .sitio-publico {
     --background: oklch(1 0 0);
-    --foreground: oklch(0.27 0.02 258);
+    --foreground: oklch(0.26 0.03 280);
 
     --card: oklch(1 0 0);
-    --card-foreground: oklch(0.27 0.02 258);
+    --card-foreground: oklch(0.26 0.03 280);
 
     --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.27 0.02 258);
+    --popover-foreground: oklch(0.26 0.03 280);
 
-    /* Naranja de la marca */
-    --primary: oklch(0.69 0.17 47);
+    /*
+    | Violeta de la marca: el punto medio del degradado del logotipo, para que
+    | botones y acentos convivan con las ondas azul-magenta sin competir.
+    | Sobre blanco da contraste AA con texto blanco encima.
+    */
+    --primary: var(--vm-violeta);
     --primary-foreground: oklch(1 0 0);
 
-    --secondary: oklch(0.97 0.012 250);
-    --secondary-foreground: oklch(0.34 0.03 258);
+    --secondary: oklch(0.97 0.012 285);
+    --secondary-foreground: oklch(0.34 0.04 285);
 
-    --muted: oklch(0.975 0.008 250);
-    --muted-foreground: oklch(0.53 0.02 256);
+    --muted: oklch(0.975 0.008 285);
+    --muted-foreground: oklch(0.52 0.025 283);
 
-    --accent: oklch(0.965 0.03 70);
-    --accent-foreground: oklch(0.38 0.09 52);
+    --accent: oklch(0.965 0.025 292);
+    --accent-foreground: oklch(0.4 0.13 289);
 
     --destructive: oklch(0.58 0.22 27);
     --destructive-foreground: oklch(1 0 0);
 
-    --border: oklch(0.93 0.008 255);
-    --input: oklch(0.93 0.008 255);
-    --ring: oklch(0.69 0.17 47);
+    --border: oklch(0.925 0.012 285);
+    --input: oklch(0.925 0.012 285);
+    --ring: var(--vm-violeta);
 
     color-scheme: light;
     background-color: var(--background);
     color: var(--foreground);
+}
+
+/*
+|------------------------------------------------------------------------------
+| Degradado de marca
+|------------------------------------------------------------------------------
+|
+| El logotipo va de azul a magenta; estas dos clases llevan ese mismo barrido
+| a los fondos y a los títulos destacados para que la página se lea como una
+| extensión de la marca y no como una plantilla recoloreada.
+|
+*/
+
+.vm-degradado {
+    background-image: var(--vm-degradado);
+}
+
+.vm-texto-degradado {
+    background-image: var(--vm-degradado);
+    background-clip: text;
+    color: transparent;
+    /* Evita que el descendente de una «g» o una «j» se recorte. */
+    padding-bottom: 0.08em;
+}
+
+/* Filo superior de la barra de navegación, como el borde del logotipo. */
+.vm-filo-degradado::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0;
+    bottom: -1px;
+    height: 2px;
+    background-image: var(--vm-degradado);
 }
 
 /*
@@ -220,7 +273,7 @@
 
 .vm-elevar:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px -12px oklch(0.27 0.02 258 / 0.18);
+    box-shadow: 0 12px 32px -12px oklch(0.52 0.26 289 / 0.28);
 }
 
 /* Botones y enlaces con una respuesta táctil discreta. */

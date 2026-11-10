@@ -27,8 +27,7 @@ class PlanCrudTest extends TestCase
             'precio_mensual' => 599.00,
             'moneda' => 'MXN',
             'caracteristicas' => "Primera línea\nSegunda línea",
-            'restricciones' => 'Sujeto a cobertura.',
-            'folio_tarifa' => 'IFT-2026-001',
+            'folio_tarifa' => 'CRT-2026-001',
             'destacado' => '1',
             'activo' => '1',
             'orden' => 1,
@@ -52,10 +51,28 @@ class PlanCrudTest extends TestCase
 
         $this->assertNotNull($plan);
         $this->assertSame(599.0, (float) $plan->precio_mensual);
-        $this->assertSame('IFT-2026-001', $plan->folio_tarifa);
+        $this->assertSame('CRT-2026-001', $plan->folio_tarifa);
         $this->assertTrue($plan->destacado);
         // El textarea llega como texto y se guarda como lista.
         $this->assertSame(['Primera línea', 'Segunda línea'], $plan->caracteristicas);
+    }
+
+    /**
+     * Los paquetes ya no llevan restricciones: aunque alguien mande el campo a
+     * mano, no debe guardarse (ver docs/REQUISITOS-LEGALES.md, requisito 12).
+     */
+    public function test_las_restricciones_ya_no_se_guardan(): void
+    {
+        $this->actingAs($this->admin())
+            ->post(route('admin.planes.store'), $this->datosValidos([
+                'restricciones' => 'Sujeto a cobertura.',
+            ]))
+            ->assertRedirect(route('admin.planes.index'));
+
+        $plan = Plan::firstWhere('nombre', 'Plan Hogar 100');
+
+        $this->assertNotNull($plan);
+        $this->assertNull($plan->restricciones);
     }
 
     public function test_el_administrador_edita_el_precio(): void

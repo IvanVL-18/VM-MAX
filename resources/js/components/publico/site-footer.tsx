@@ -8,6 +8,7 @@ import {
     Phone,
     Clock,
 } from 'lucide-react';
+import LogoVmMax from '@/components/logo-vm-max';
 import { Dato, ListaDatos } from '@/components/publico/dato';
 import { enlaceWhatsapp } from '@/lib/whatsapp';
 import type { PropsCompartidas } from '@/types/sitio';
@@ -39,6 +40,8 @@ export default function SiteFooter() {
             <div className="mx-auto max-w-6xl px-4 py-12">
                 <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
                     <section>
+                        <LogoVmMax className="mb-4 h-12 w-auto" />
+
                         <h2 className="mb-3 text-sm font-semibold tracking-wide uppercase">
                             Marca comercial
                         </h2>

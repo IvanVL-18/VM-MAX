@@ -32,7 +32,6 @@ class Plan extends Model
         'caracteristicas',
         'incluye_tv',
         'incluye_camara',
-        'restricciones',
         'folio_tarifa',
         'destacado',
         'activo',
@@ -59,8 +58,12 @@ class Plan extends Model
     /**
      * Forma en que el plan se entrega al sitio publico.
      *
-     * Incluye siempre las restricciones (requisito 12) y el folio de la tarifa
-     * inscrita en el IFT (requisito 13), que deben mostrarse junto al precio.
+     * Incluye siempre el folio de la tarifa inscrita en la CRT (requisito 13),
+     * que debe mostrarse junto al precio.
+     *
+     * Los paquetes no publican restricciones por decision del cliente. La
+     * columna `restricciones` sigue en la tabla, pero ya no se captura ni se
+     * expone: no viaja al sitio publico ni aparece en el panel.
      *
      * @return array<string, mixed>
      */
@@ -78,7 +81,6 @@ class Plan extends Model
             'caracteristicas' => $this->caracteristicas ?? [],
             'incluye_tv' => $this->incluye_tv,
             'incluye_camara' => $this->incluye_camara,
-            'restricciones' => $this->restricciones,
             'folio_tarifa' => $this->folio_tarifa,
             'destacado' => $this->destacado,
         ];

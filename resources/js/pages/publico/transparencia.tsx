@@ -13,7 +13,7 @@ type FolioPlan = {
 /**
  * Requisitos 14, 15 y 16: las ligas oficiales deben aparecer de forma
  * individual y visible en el sitio, no solamente dentro del PDF del Código de
- * Prácticas Comerciales. Requisito 13: folios de tarifas inscritas en el IFT.
+ * Prácticas Comerciales. Requisito 13: folios de tarifas inscritas en la CRT.
  */
 export default function Transparencia({
     enlaces,
@@ -28,7 +28,7 @@ export default function Transparencia({
 
             <PageHeader
                 titulo="Transparencia"
-                descripcion="Ligas a la información oficial publicada por el Instituto Federal de Telecomunicaciones y en el Diario Oficial de la Federación, junto con los folios de nuestras tarifas registradas."
+                descripcion="Ligas a la información oficial publicada por la Comisión Reguladora de Telecomunicaciones y en el Diario Oficial de la Federación, junto con los folios de nuestras tarifas registradas."
             />
 
             <div className="mx-auto max-w-4xl px-4 py-12">

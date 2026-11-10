@@ -121,7 +121,7 @@ class DocumentoLegalTest extends TestCase
 
         $documento = DocumentoLegal::create([
             'tipo' => TipoDocumento::PermisoIft->value,
-            'titulo' => 'Permiso del IFT',
+            'titulo' => 'Permiso de la CRT',
             'archivo_path' => $ruta,
             'archivo_nombre_original' => 'permiso.pdf',
             'activo' => true,
@@ -130,14 +130,14 @@ class DocumentoLegalTest extends TestCase
         $this->actingAs($this->admin())
             ->put(route('admin.documentos.update', $documento), [
                 'tipo' => TipoDocumento::PermisoIft->value,
-                'titulo' => 'Permiso del IFT (actualizado)',
+                'titulo' => 'Permiso de la CRT (actualizado)',
                 'activo' => '1',
             ])
             ->assertRedirect(route('admin.documentos.index'));
 
         $documento->refresh();
 
-        $this->assertSame('Permiso del IFT (actualizado)', $documento->titulo);
+        $this->assertSame('Permiso de la CRT (actualizado)', $documento->titulo);
         $this->assertSame($ruta, $documento->archivo_path);
         Storage::disk('local')->assertExists($ruta);
     }

@@ -28,7 +28,6 @@ class PlanRequest extends FormRequest
             'caracteristicas.*' => ['string', 'max:255'],
             'incluye_tv' => ['boolean'],
             'incluye_camara' => ['boolean'],
-            'restricciones' => ['nullable', 'string', 'max:5000'],
             'folio_tarifa' => ['nullable', 'string', 'max:255'],
             'destacado' => ['boolean'],
             'activo' => ['boolean'],
@@ -49,7 +48,6 @@ class PlanRequest extends FormRequest
             'caracteristicas' => 'características',
             'incluye_tv' => 'servicio de televisión',
             'incluye_camara' => 'cámara de seguridad',
-            'restricciones' => 'restricciones',
             'folio_tarifa' => 'folio de tarifa',
             'orden' => 'orden de despliegue',
         ];

@@ -81,7 +81,6 @@ class PlanController extends Controller
                 'caracteristicas' => $plan->caracteristicas ?? [],
                 'incluye_tv' => $plan->incluye_tv,
                 'incluye_camara' => $plan->incluye_camara,
-                'restricciones' => $plan->restricciones,
                 'folio_tarifa' => $plan->folio_tarifa,
                 'destacado' => $plan->destacado,
                 'activo' => $plan->activo,
